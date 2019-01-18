@@ -1,27 +1,16 @@
 let weatherdays = []; //in dieses Array füllen wir die Wettervorschau der kommenden Tage
 let key = '78c7ef3471574b8f89492311191101'; // signup https://www.apixu.com/signup.aspx
+let cities = ['Zürich', 'Sydney', 'London', 'New York'];
+let i = 0;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
     textAlign(CENTER, CENTER);
-    let checkbox;
-    checkbox = createCheckbox('label', false);
-    checkbox.changed(myCheckedEvent);
-
 
     let url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=Zürich&days=7';
 
     loadJSON(url, gotWeather);//nachdem das json File geladen ist, rufen wir die Funktion gotWeather auf
-}
-
-
-function myCheckedEvent() {
-    if (this.checked()) {
-        console.log('Checking!');
-    } else {
-        console.log('Unchecking!');
-    }
 }
 
 
@@ -48,14 +37,23 @@ function drawCities() {
 
     noFill();
     stroke(1);
-    ellipse(width / 2 , height / 2 - height / 2, width, width);
-
-
+    ellipse(width / 2, height / 2 - height / 2, width, width);
 }
+
 function drawText() {
     fill(100);
     noStroke();
-    textSize(18);
-    text('Zürich', height / 2, width / 2);
+    textSize(22);
+
+        text(cities[i], width / 2, height / 2 - height / 4);
+
 }
 
+function mousePressed() {
+    i = i + 1;
+
+    if (i == cities.length){
+        i = 0;
+    }
+    
+}
