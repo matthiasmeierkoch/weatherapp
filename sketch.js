@@ -25,7 +25,7 @@ function reloadJson() {
 }
 
 function draw() {
-    background(255);
+    background(51);
     drawCities();
     drawText();
 }
@@ -36,17 +36,16 @@ function drawCities() {
     let angle = 360 / days;// Hier rechnen wir den Drehwinkel, damit das mit der Anzahl Tage schön aufgeht
 
     noFill();
-    stroke(1);
+    stroke(255);
+    strokeWeight(3);
     ellipse(width / 2, height / 2 - height / 2, width, width);
 }
 
 function drawText() {
-    fill(100);
+    fill(255);
     noStroke();
     textSize(22);
-
         text(cities[i], width / 2, height / 2 - height / 4);
-
 }
 
 function mousePressed() {
@@ -55,5 +54,4 @@ function mousePressed() {
     if (i == cities.length){
         i = 0;
     }
-    
 }
