@@ -20,7 +20,9 @@ function gotWeather(weather) {
 }
 
 function reloadJson() {
-    ort = drawText(cities.values(i));
+    drawText(cities.values(i));
+    ort = cities[i];
+
     url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=' + ort + '&days=7';
     loadJSON(url, gotWeather);//nachdem das json File geladen ist, rufen wir die Funktion gotWeather auf
 }
