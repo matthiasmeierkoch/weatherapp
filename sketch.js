@@ -16,7 +16,7 @@ function setup() {
 
 
 function gotWeather(weather) {
-    weatherdays = weather.forecast.forecastday;
+    weatherdays = weather.current;
 }
 
 function reloadJson() {
@@ -31,6 +31,8 @@ function draw() {
     drawText();
     drawmaxTemp();
     drawminTemp();
+    drawSunset();
+    drawSunrise();
 }
 
 function drawCities() {
@@ -66,7 +68,7 @@ function drawmaxTemp() {
     let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
     fill(255, 0, 0, 80);
     noStroke();
-    ellipse(width / 2, height / 2, 300, 300);
+    ellipse(width / 2 - 160, height / 2, 200, 200);
 
     for (let s = 0; s < days; s++) {
         fill(255);
@@ -76,12 +78,43 @@ function drawmaxTemp() {
     }
 }
 
+
 function drawminTemp() {
 
     let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
     fill(255, 0, 0, 80);
     noStroke();
-    ellipse(width / 2, height / 2 + 200, 300, 300);
+    ellipse(width / 2 - 160, height / 2 + 150, 200, 200);
+
+    for (let s = 0; s < days; s++) {
+        fill(255);
+        noStroke();
+        textSize(20);
+        text(weatherdays[s].day.mintemp_c, width / 2, height / 2 + 200);//wir geben hier die Maximaltemperatur aus
+    }
+}
+
+function drawSunrise() {
+
+    let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
+    fill(255, 0, 0, 80);
+    noStroke();
+    ellipse(width / 2 + 160, height / 2, 200, 200);
+
+    for (let s = 0; s < days; s++) {
+        fill(255);
+        noStroke();
+        textSize(20);
+        text(weatherdays[s].day.maxtemp_c, width / 2, height / 2);//wir geben hier die Maximaltemperatur aus
+    }
+}
+
+function drawSunset() {
+
+    let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
+    fill(255, 0, 0, 80);
+    noStroke();
+    ellipse(width / 2 + 160, height / 2 + 150, 200, 200);
 
     for (let s = 0; s < days; s++) {
         fill(255);
