@@ -16,7 +16,7 @@ function setup() {
 
 
 function gotWeather(weather) {
-    weatherdays = weather.current;
+    weatherdays = weather.forecast.forecastday;
 }
 
 function reloadJson() {
@@ -74,7 +74,7 @@ function drawmaxTemp() {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[s].day.maxtemp_c, width / 2, height / 2);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].day.maxtemp_c, width / 2 - 160, height / 2);//wir geben hier die Maximaltemperatur aus
     }
 }
 
@@ -90,7 +90,7 @@ function drawminTemp() {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[s].day.mintemp_c, width / 2, height / 2 + 200);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].day.mintemp_c, width / 2 - 160, height / 2 + 160);//wir geben hier die Maximaltemperatur aus
     }
 }
 
@@ -105,7 +105,7 @@ function drawSunrise() {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[s].day.maxtemp_c, width / 2, height / 2);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].astro.sunrise, width / 2 + 160, height / 2);//wir geben hier die Maximaltemperatur aus
     }
 }
 
@@ -120,6 +120,6 @@ function drawSunset() {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[s].day.mintemp_c, width / 2, height / 2 + 200);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].astro.sunset, width / 2 + 160, height / 2 + 160);//wir geben hier die Maximaltemperatur aus
     }
 }
