@@ -83,7 +83,7 @@ function drawmaxTemp() {
         textSize(20);
         text(weatherdays[0].day.maxtemp_c, width / 2, height / 2 - maxTemp);//wir geben hier die Maximaltemperatur aus
         textSize(14);
-        text('min. & max. Tempererature', width / 2, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
+        text('min. & max. Tempererature °C', width / 2, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
 
 
     }
@@ -184,7 +184,7 @@ function drawRain() {
         fill(255);
         noStroke();
         textSize(14);
-        text('Sunrise and Sunset', width / 2 + 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
+        text('Rain Precipitation ', width / 2 + 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
 
         textSize(20);
         text(weatherdays[0].day.totalprecip_mm, width / 2 + 210, height / 2);//wir geben hier die Maximaltemperatur aus
