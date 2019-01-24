@@ -34,6 +34,7 @@ function draw() {
     drawSunset();
     drawSunrise();
     drawMinMaxTemp();
+    drawRain();
 }
 
 function drawCities() {
@@ -50,8 +51,8 @@ function drawCities() {
 function drawText() {
     fill(255);
     noStroke();
-    textSize(26);
-    text(cities[i], width / 2, height / 2 - height / 4);
+    textSize(32);
+    text(cities[i], width / 2, height / 2 - height / 4 - 50);
 }
 
 
@@ -75,14 +76,14 @@ function drawmaxTemp() {
 
         fill(255, 0, 0, 80);
         noStroke();
-        ellipse(width / 2 - 160, height / 2 - maxTemp, 200, 200);
+        ellipse(width / 2, height / 2 - maxTemp, 200, 200);
 
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[0].day.maxtemp_c, width / 2 - 160, height / 2 - maxTemp);//wir geben hier die Maximaltemperatur aus
-        textSize(18);
-        text('min. & max. Tempererature', width / 2 - 160, height / 2 - 130);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].day.maxtemp_c, width / 2, height / 2 - maxTemp);//wir geben hier die Maximaltemperatur aus
+        textSize(14);
+        text('min. & max. Tempererature', width / 2, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
 
 
     }
@@ -99,12 +100,12 @@ function drawminTemp() {
 
         fill(255, 0, 0, 80);
         noStroke();
-        ellipse(width / 2 - 160, height / 2 + 160 - minTemp , 200, 200);
+        ellipse(width / 2, height / 2 + 160 - minTemp, 200, 200);
 
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[0].day.mintemp_c, width / 2 - 160, height / 2 + 160 - minTemp);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].day.mintemp_c, width / 2, height / 2 + 160 - minTemp);//wir geben hier die Maximaltemperatur aus
 
 
     }
@@ -115,15 +116,15 @@ function drawSunrise() {
     let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
     fill(255, 0, 0, 90);
     noStroke();
-    ellipse(width / 2 + 160, height / 2, 200, 200);
+    ellipse(width / 2 - 210, height / 2, 200, 200);
 
     for (let s = 0; s < days; s++) {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[0].astro.sunrise, width / 2 + 160, height / 2);//wir geben hier die Maximaltemperatur aus
-        textSize(18);
-        text('Sunrise and Sunset', width / 2 + 160, height / 2 - 130);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].astro.sunrise, width / 2 - 210, height / 2);//wir geben hier die Maximaltemperatur aus
+        textSize(14);
+        text('Sunrise and Sunset', width / 2 - 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
     }
 }
 
@@ -132,13 +133,13 @@ function drawSunset() {
     let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
     fill(255, 0, 0, 90);
     noStroke();
-    ellipse(width / 2 + 160, height / 2 + 150, 200, 200);
+    ellipse(width / 2 - 210, height / 2 + 150, 200, 200);
 
     for (let s = 0; s < days; s++) {
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[0].astro.sunset, width / 2 + 160, height / 2 + 160);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].astro.sunset, width / 2 - 210, height / 2 + 160);//wir geben hier die Maximaltemperatur aus
     }
 }
 
@@ -146,10 +147,10 @@ function drawDate() {
     fill(255);
     noStroke();
     textSize(20);
-    text(weatherdays[0].date, width / 2,height / 2 - 150);// current date
+    text(weatherdays[0].date, width / 2, height / 2 - 150);// current date
 }
 
-function drawMinMaxTemp (){
+function drawMinMaxTemp() {
     let days = weatherdays.length;
 
     for (let s = 0; s < days; s++) {
@@ -166,5 +167,26 @@ function drawMinMaxTemp (){
         ellipse(xPos, 0, 5, 5); //Maximal Temperatur
         noFill();
         stroke(1)
+    }
+}
+
+function drawRain() {
+    let days = weatherdays.length;//Hier fragen wir ab,  wieviele Tage im Array weatherdays gespeichert sind
+
+    for (let s = 0; s < days; s++) {
+
+        fill(255, 0, 0, 90);
+        noStroke();
+        ellipse(width / 2 + 210, height / 2, 200, 200);
+        fill(0, 0, 255);
+        ellipse(width / 2 + 210, height / 2 + 200, weatherdays[0].day.totalprecip_mm * 2, weatherdays[0].day.totalprecip_mm * 2);
+
+        fill(255);
+        noStroke();
+        textSize(14);
+        text('Sunrise and Sunset', width / 2 + 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
+
+        textSize(20);
+        text(weatherdays[0].day.totalprecip_mm, width / 2 + 210, height / 2);//wir geben hier die Maximaltemperatur aus
     }
 }
