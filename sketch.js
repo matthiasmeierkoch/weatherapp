@@ -19,8 +19,8 @@ function setup() {
     button.mousePressed(reloadJson);
     let url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=Zürich&days=7';
     loadJSON(url, gotWeather);//nachdem das json File geladen ist, rufen wir die Funktion gotWeather auf
-    from = color(0, 0,255, 8);
-    to = color(255, 0, 0, 8);
+    from = color(0, 0,255, 40);
+    to = color(255, 0, 0, 40);
 }
 
 
