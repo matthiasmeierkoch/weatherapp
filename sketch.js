@@ -35,6 +35,9 @@ function draw() {
     drawSunrise();
     drawMinMaxTemp();
     drawRain();
+    if (weatherdays.length>0){
+        drawDate();
+    }
 }
 
 function drawCities() {
@@ -100,12 +103,12 @@ function drawminTemp() {
 
         fill(255, 0, 0, 80);
         noStroke();
-        ellipse(width / 2, height / 2 + 160 - minTemp, 200, 200);
+        ellipse(width / 2, height / 2 + 160 + minTemp, 200, 200);
 
         fill(255);
         noStroke();
         textSize(20);
-        text(weatherdays[0].day.mintemp_c, width / 2, height / 2 + 160 - minTemp);//wir geben hier die Maximaltemperatur aus
+        text(weatherdays[0].day.mintemp_c, width / 2, height / 2 + 160 + minTemp);//wir geben hier die Maximaltemperatur aus
 
 
     }
@@ -147,7 +150,7 @@ function drawDate() {
     fill(255);
     noStroke();
     textSize(20);
-    text(weatherdays[0].date, width / 2, height / 2 - 150);// current date
+    text('Datum: '+weatherdays[0].date, width / 2, height / 2 - 220);// current date
 }
 
 function drawMinMaxTemp() {
@@ -179,12 +182,12 @@ function drawRain() {
         noStroke();
         ellipse(width / 2 + 210, height / 2, 200, 200);
         fill(0, 0, 255);
-        ellipse(width / 2 + 210, height / 2 + 200, weatherdays[0].day.totalprecip_mm * 2, weatherdays[0].day.totalprecip_mm * 2);
+        ellipse(width / 2 + 210, height / 2 + 200, weatherdays[0].day.totalprecip_mm * 40, weatherdays[0].day.totalprecip_mm * 40);
 
         fill(255);
         noStroke();
         textSize(14);
-        text('Rain Precipitation ', width / 2 + 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
+        text('Rain Precipitation (mm)', width / 2 + 210, height / 2 - 150);//wir geben hier die Maximaltemperatur aus
 
         textSize(20);
         text(weatherdays[0].day.totalprecip_mm, width / 2 + 210, height / 2);//wir geben hier die Maximaltemperatur aus
