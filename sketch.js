@@ -169,7 +169,7 @@ function drawRain() {
     for (let s = 0; s < days; s++) {
 
         fill(0, 0, 255, 16);
-        ellipse(width / 2 + 210, height / 2 + 150, weatherdays[0].day.totalprecip_mm * 40, weatherdays[0].day.totalprecip_mm * 40);
+        ellipse(width / 2 + 210, height / 2 + 150, weatherdays[0].day.totalprecip_mm * 20, weatherdays[0].day.totalprecip_mm * 20);
 
         fill(255);
         noStroke();
