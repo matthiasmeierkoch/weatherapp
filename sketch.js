@@ -5,12 +5,18 @@ let i = 0;
 let d = 600;
 let from;
 let to;
-
+let input, button;
+let writeOrt="";
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
     textAlign(CENTER, CENTER);
+    input = createInput();
+    input.position(width / 2 - 108, height / 2 + 350);
+    button = createButton('go');
+    button.position(input.x + input.width / 2 + 70, height / 2 + 350);
+    button.mousePressed(reloadJson);
     let url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=Zürich&days=7';
     loadJSON(url, gotWeather);//nachdem das json File geladen ist, rufen wir die Funktion gotWeather auf
     from = color(0, 0,255, 8);
@@ -23,9 +29,9 @@ function gotWeather(weather) {
 }
 
 function reloadJson() {
-    drawText(cities.values(i));
-    ort = cities[i];
-    url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=' + ort + '&days=7';
+    ort = input.value();
+    writeOrt=ort;
+    url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=' + ort + '&days=7'
     loadJSON(url, gotWeather);//nachdem das json File geladen ist, rufen wir die Funktion gotWeather auf
 }
 
@@ -56,20 +62,11 @@ function drawCities() {
 }
 
 function drawText() {
+    //ort = input.value();
     fill(255);
     noStroke();
     textSize(32);
-    text(cities[i], width / 2, height / 2 - height / 4 - 50);
-}
-
-
-function mousePressed() {
-    i = i + 1;
-
-    if (i == cities.length) {
-        i = 0;
-    }
-    reloadJson();
+    text(writeOrt, width / 2, height / 2 - height / 4 - 50);
 }
 
 

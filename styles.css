@@ -1,0 +1,15 @@
+input {
+    background-color: lightgray;
+    border-radius: 10px;
+    height: 30px;
+    width: 120px;
+    box-shadow: 2px 3px 10px #000000;
+}
+
+button {
+    height: 38px;
+    width: 60px;
+    border-radius: 30px;
+    box-shadow: 2px 3px 10px #000000;
+    background-color: lightgray;
+}
