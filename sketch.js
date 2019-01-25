@@ -13,8 +13,8 @@ function setup() {
     angleMode(DEGREES);
     textAlign(CENTER, CENTER);
     input = createInput();
-    input.position(width / 2 - 108, height / 2 + 350);
-    button = createButton('go');
+    input.position(width / 2 - 90, height / 2 + 350);
+    button = createButton('Go!');
     button.position(input.x + input.width / 2 + 70, height / 2 + 350);
     button.mousePressed(reloadJson);
     let url = 'https://api.apixu.com/v1/forecast.json?key=78c7ef3471574b8f89492311191101&q=Zürich&days=7';
